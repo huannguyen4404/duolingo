@@ -13,7 +13,7 @@ const main = async () => {
     await db.delete(schema.courses)
     await db.delete(schema.userProgress)
     await db.delete(schema.units)
-    await db.delete(schema.lessions)
+    await db.delete(schema.lessons)
     await db.delete(schema.challenges)
     await db.delete(schema.challengeOptions)
     await db.delete(schema.challengeProgress)
@@ -35,7 +35,7 @@ const main = async () => {
       },
     ])
 
-    await db.insert(schema.lessions).values([
+    await db.insert(schema.lessons).values([
       { id: 1, unitId: 1, title: 'Nouns', order: 1 },
       { id: 2, unitId: 1, title: 'Verbs', order: 2 },
       { id: 3, unitId: 1, title: 'Verbs', order: 3 },
@@ -46,7 +46,7 @@ const main = async () => {
     await db.insert(schema.challenges).values([
       {
         id: 1,
-        lessionId: 1,
+        lessonId: 1,
         type: 'SELECT',
         order: 1,
         question: 'Which one of these is the "the man"?',

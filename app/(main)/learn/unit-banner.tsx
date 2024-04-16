@@ -15,7 +15,7 @@ export const UnitBanner = ({ title, description }: Props) => {
         <p className="text-lg">{description}</p>
       </div>
 
-      <Link href="/lession">
+      <Link href="/lesson">
         <Button
           size="lg"
           variant="secondary"

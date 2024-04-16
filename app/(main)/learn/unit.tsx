@@ -1,4 +1,4 @@
-import { lessions, units } from '@/db/schema'
+import { lessons, units } from '@/db/schema'
 import { UnitBanner } from './unit-banner'
 import { LessonButton } from './lesson-button'
 
@@ -7,13 +7,13 @@ type Props = {
   order: number
   title: string
   description: string
-  lessions: (typeof lessions.$inferSelect & { completed: boolean })[]
-  activeLession:
-    | (typeof lessions.$inferSelect & {
+  lessons: (typeof lessons.$inferSelect & { completed: boolean })[]
+  activeLesson:
+    | (typeof lessons.$inferSelect & {
         unit: typeof units.$inferSelect
       })
     | undefined
-  activeLessionPercentage: number
+  activeLessonPercentage: number
 }
 
 export const Unit = ({
@@ -21,27 +21,27 @@ export const Unit = ({
   order,
   title,
   description,
-  lessions,
-  activeLession,
-  activeLessionPercentage,
+  lessons,
+  activeLesson,
+  activeLessonPercentage,
 }: Props) => {
   return (
     <>
       <UnitBanner title={title} description={description} />
       <div className="flex items-center flex-col relative">
-        {lessions.map((lession, index) => {
-          const isCurrent = lession.id === activeLession?.id
-          const isLocked = !lession.completed && !isCurrent
+        {lessons.map((lesson, index) => {
+          const isCurrent = lesson.id === activeLesson?.id
+          const isLocked = !lesson.completed && !isCurrent
 
           return (
             <LessonButton
-              key={lession.id}
-              id={lession.id}
+              key={lesson.id}
+              id={lesson.id}
               index={index}
-              totalCount={lessions.length - 1}
+              totalCount={lessons.length - 1}
               current={isCurrent}
               locked={isLocked}
-              percentage={activeLessionPercentage}
+              percentage={activeLessonPercentage}
             />
           )
         })}
