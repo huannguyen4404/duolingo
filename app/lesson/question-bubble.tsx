@@ -7,13 +7,19 @@ type Props = {
 export const QuestionBubble = ({ question }: Props) => {
   return (
     <div className="flex items-center gap-x-4 mb-6">
-      <Image src="/mascot.svg" alt="Mascot" height={60} width={60} />
+      <Image
+        src="/mascot.svg"
+        alt="Mascot"
+        height={60}
+        width={60}
+        className="hidden lg:block"
+      />
       <Image
         src="/mascot.svg"
         alt="Mascot"
         height={40}
         width={40}
-        className="hidden lg:block"
+        className="block lg:hidden"
       />
       <div className="relative py-2 px-4 border-2 rounded-xl text-sm lg:text-base">
         {question}
